@@ -7,7 +7,7 @@ const recipeSchema = new mongoose.Schema({
         required: true
     },
     time: {
-        type: Int32,
+        type: String,
         required: true
     },
     ingredients: {
