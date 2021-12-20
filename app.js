@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
-const port = 8080
+const mongoose = require('mongoose')
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+mongoose.connect('mongodb://localhost/cookbookdb', { useNewUrlParser: true})
+const db = mongoose.connection
+db.on('error', (error) => console.error(error))
+db.once('open', () => console.log('Connected to Database'))
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.use(express.json())
+
+app.listen(8080, () => console.log('Server Started'))
