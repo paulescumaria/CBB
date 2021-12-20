@@ -18,6 +18,17 @@ const createRecipeServices = async (req, res) => {
     
 }
 
+const getAllRecipeServices = async (req,res) => {
+    try {
+        const listRecipe = await Recipe.find()
+        res.status(200).json(listRecipe)
+    } catch(err) {
+        res.status(400).json(listRecipe)
+    }
+
+}
+
 module.exports = {
-    createRecipeServices
+    createRecipeServices,
+    getAllRecipeServices
 }

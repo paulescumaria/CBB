@@ -1,4 +1,4 @@
-const {createRecipeServices} = require('../Services/recipeService')
+const {createRecipeServices, getAllRecipeServices} = require('../Services/recipeService')
 
 const createRecipeController = async (req,res) => {
     res.setHeader('Content-Type', 'application/json')
@@ -10,4 +10,14 @@ const createRecipeController = async (req,res) => {
     }
 }
 
-module.exports = {createRecipeController}
+const getAllRecipeController = async (req,res) => {
+    res.setHeader('Content-Type', 'application/json')
+
+    try {
+        await getAllRecipeServices(req,res)
+    } catch(err) {
+        res.status(500)
+    }
+} 
+
+module.exports = {createRecipeController, getAllRecipeController}
