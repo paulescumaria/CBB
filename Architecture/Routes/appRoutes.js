@@ -1,5 +1,5 @@
 const express = require('express')
-const { createUserController } = require('../Controller/userController')
+const { createUserController, loginController } = require('../Controller/userController')
 const {createRecipeController, getAllRecipeController, updateRecipeController, removeRecipeController} = require('../Controller/recipesController')
 const { getRecipeById } = require('../Services/recipeService')
 
@@ -14,5 +14,7 @@ router.put('/modifyrecipe', async (req,res) => updateRecipeController(req, res))
 router.delete('/removerecipe', async (req,res) => removeRecipeController(req,res))
 
 router.post('/createuser', async (req,res) => createUserController(req,res))
+
+router.get('/login', async (req,res) => loginController(req,res))
 
 module.exports = router

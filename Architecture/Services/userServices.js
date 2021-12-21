@@ -18,4 +18,15 @@ const createUserServices = async (req, res) => {
     
 }
 
-module.exports = { createUserServices }
+const loginServices = async (req,res) => {
+    try {
+        const findUser = await User.find(req.body)
+        res.status(201).json(findUser)
+    } catch(err) {
+        res.status(400).json({ message: "User not find"})
+    }
+}
+
+module.exports = { createUserServices,
+                   loginServices
+}
