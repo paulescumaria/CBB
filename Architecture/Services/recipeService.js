@@ -35,9 +35,7 @@ const getRecipeById = async (req,res) => {
         recipeById = await Recipe.findById(req.body.id) 
         if (recipeById == null) {
             res.status(400).json({ message: "cannot find a recipe by this id"})
-        } else {
-            res.status(200).json({ message: "find a recipe by this id"})
-        }
+        } 
     } catch(err) {}
     res.recipe = recipeById
 }
@@ -69,8 +67,6 @@ const updateRecipeServices = async (req,res) => {
         res.status(400).json({ message: err.message })
     }
     } catch(err) {}
-    
-   
 } 
 
 module.exports = {
