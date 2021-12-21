@@ -1,4 +1,4 @@
-const {createRecipeServices, getAllRecipeServices, updateRecipeServices} = require('../Services/recipeService')
+const {createRecipeServices, getAllRecipeServices, updateRecipeServices, removeRecipeServices} = require('../Services/recipeService')
 
 const createRecipeController = async (req,res) => {
     res.setHeader('Content-Type', 'application/json')
@@ -30,4 +30,14 @@ const updateRecipeController = async (req,res) => {
     }
 }
 
-module.exports = {createRecipeController, getAllRecipeController, updateRecipeController}
+const removeRecipeController = async (req,res) => {
+    res.setHeader('Content-Type', 'application/json')
+
+    try {
+        await removeRecipeServices(req,res)
+    } catch(err) {
+        res.status(500).json({ message: err.message })
+    }
+}
+
+module.exports = {createRecipeController, getAllRecipeController, updateRecipeController, removeRecipeController}

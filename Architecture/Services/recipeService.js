@@ -69,9 +69,21 @@ const updateRecipeServices = async (req,res) => {
     } catch(err) {}
 } 
 
+const removeRecipeServices = async (req,res) => {
+
+        try {
+            await Recipe.findOneAndDelete(req.body)
+            res.status(201).json({message: "The recipe has been deleted"})
+        } catch(err) {
+            res.status(400).json({ message: err.message })
+        }
+        
+} 
+
 module.exports = {
     createRecipeServices,
     getAllRecipeServices,
     updateRecipeServices,
-    getRecipeById
+    getRecipeById,
+    removeRecipeServices
 }
