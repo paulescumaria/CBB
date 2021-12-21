@@ -1,4 +1,4 @@
-const {createRecipeServices, getAllRecipeServices} = require('../Services/recipeService')
+const {createRecipeServices, getAllRecipeServices, updateRecipeServices} = require('../Services/recipeService')
 
 const createRecipeController = async (req,res) => {
     res.setHeader('Content-Type', 'application/json')
@@ -6,7 +6,7 @@ const createRecipeController = async (req,res) => {
     try {  
         await createRecipeServices(req,res)
     } catch(err) {
-        res.status(500)
+        res.status(500).json({ message: err.message })
     }
 }
 
@@ -16,8 +16,18 @@ const getAllRecipeController = async (req,res) => {
     try {
         await getAllRecipeServices(req,res)
     } catch(err) {
-        res.status(500)
+        res.status(500).json({ message: err.message })
     }
 } 
 
-module.exports = {createRecipeController, getAllRecipeController}
+const updateRecipeController = async (req,res) => {
+    res.setHeader('Content-Type', 'application/json')
+
+    try {
+        await updateRecipeServices(req,res)
+    } catch(err) {
+        res.status(500).json({ message: err.message })
+    }
+}
+
+module.exports = {createRecipeController, getAllRecipeController, updateRecipeController}
