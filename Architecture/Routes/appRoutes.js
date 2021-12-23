@@ -15,6 +15,6 @@ router.delete('/removerecipe', async (req,res) => removeRecipeController(req,res
 
 router.post('/createuser', async (req,res) => createUserController(req,res))
 
-router.get('/login', async (req,res) => loginController(req,res))
+router.post('/login', async (req,res) => loginController(req,res))
 
 module.exports = router
