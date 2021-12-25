@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const route = require('../express-app/Architecture/Routes/appRoutes')
+const port = process.env.PORT || 8080
 
 mongoose.connect("mongodb+srv://Alexandra:.Qwerty.123@cookbookcluster.appmy.mongodb.net/cookbookdb?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
@@ -12,4 +13,4 @@ app.use(express.json())
 
 app.use('/api', route)
 
-app.listen(8080, () => console.log('Server Started'))
+app.listen(port, () => console.log('Server Started'))
