@@ -1,4 +1,3 @@
-const { findById } = require('../Model/recipeData')
 const Recipe = require('../Model/recipeData')
 const { ObjectId } = require('mongodb')
 
