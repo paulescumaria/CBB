@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const {router} = require('../express-app/Architecture/Routes/appRoutes')
+const {router} = require('./Architecture/Routes/appRoutes')
 const port = process.env.PORT || 8080
 
 mongoose.connect("mongodb+srv://Alexandra:.Qwerty.123@cookbookcluster.appmy.mongodb.net/cookbookdb?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
